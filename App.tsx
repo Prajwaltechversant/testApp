@@ -6,15 +6,17 @@ import VideoComponent from './src/testing-components/mock/VideoComponents';
 import AxiosComponent from './src/testing-components/mock/AxiosComponent';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Sample1 from './src/screens/sample screen 2';
 import Sample2 from './src/screens/sample screen1';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store/store';
+import Stopwatch from './src/screens/sample screen 2';
 
  const Stack = createNativeStackNavigator()
 
  export const NativeStack = ()=>{
   return(
     <Stack.Navigator>
-      <Stack.Screen name='screen1'  component={Sample1} />
+      <Stack.Screen name='screen1'  component={Stopwatch} />
       <Stack.Screen name='screen2'  component={Sample2} />
 
     </Stack.Navigator>
@@ -25,16 +27,16 @@ import Sample2 from './src/screens/sample screen1';
 const App: React.FC = () => {
   return (
 
-   <NavigationContainer>
-      <ScreenContextProvider>
-        <View>
-          {/* <SnapshotComponet /> */}
-          {/* <VideoComponent /> */}
-          {/* <AxiosComponent  /> */}
-          <NativeStack  />
-        </View>
-      </ScreenContextProvider>
-   </NavigationContainer>
+   <Provider  store={store}>
+     <NavigationContainer>
+        <ScreenContextProvider>
+            {/* <SnapshotComponet /> */}
+            {/* <VideoComponent /> */}
+            {/* <AxiosComponent  /> */}
+            <NativeStack  />
+        </ScreenContextProvider>
+     </NavigationContainer>
+   </Provider>
   );
 };
 

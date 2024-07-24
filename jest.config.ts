@@ -20,6 +20,14 @@ const config: Config.InitialOptions = {
   // testEnvironmentOptions: {
   //   customExportConditions: [''],
   // },
+
+  moduleNameMapper: {
+    '^@notifee/react-native$': '<rootDir>__tests__/__mocks__/notifee-react-native.tsx',
+  },
+
+  testMatch: [
+    '**/?(*.)+(test).+(ts|tsx|js|jsx)' // Matches files with .test.tsx, .test.jsx, .test.ts, .test.js
+  ],
 };
 
 export default config;

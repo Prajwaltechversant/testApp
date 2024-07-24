@@ -1,8 +1,16 @@
-import { http } from "msw";
+import { http, HttpResponse } from 'msw';
 
 export const handlers = [
-    http.get('https://google.com', (req, res, ctx) => {
-      return res(ctx.json([{id: 1, title: 'Mock Photo'}]));
-    }),
-  ];
-  
+  http.get('https://jsonplaceholder.typicode.com/comments', (req, res) => {
+    return res(
+      HttpResponse.json([
+        {
+          id: 'c7b3d8e0-5e0b-4b0f-8b3a-3b9f4b3d3b3d',
+          firstName: 'John',
+          lastName: 'Maverick',
+        },
+      ]),
+      { status: 200, statusText: 'OK' }
+    );
+  }),
+];
