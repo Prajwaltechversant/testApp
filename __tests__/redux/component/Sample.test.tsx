@@ -11,6 +11,7 @@ import notifee, {
   AndroidImportance,
   AuthorizationStatus,
 } from '@notifee/react-native';
+
 jest.mock('@notifee/react-native');
 
 jest.spyOn(Alert, 'alert');
@@ -49,11 +50,11 @@ test('should render stopwatch component and dispatch actions', async () => {
 
   fireEvent.press(screen.getByText('Reset'));
   expect(Alert.alert).toHaveBeenCalledWith('Resetting timer...');
-//   expect(selecterSpy).toHaveBeenCalledWith(
-//     {
-// payload:'00 h: 00 m: 00 s'
-//   }
-// );
+  //   expect(selecterSpy).toHaveBeenCalledWith(
+  //     {
+  // payload:'00 h: 00 m: 00 s'
+  //   }
+  // );
 
   expect(dispatchSpy).toHaveBeenCalledWith({
     type: 'timer/saveTimer',

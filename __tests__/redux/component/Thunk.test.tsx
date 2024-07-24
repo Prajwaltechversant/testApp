@@ -56,7 +56,7 @@ describe('Sample2 Component', () => {
     const store = configureStore({
       reducer: {
         apiReducer,
-        timerReducer: (state = { status: 'idle', time: '00 h: 00 m: 00 s' }, action) => state, // Mock timer reducer
+        timerReducer: (state = { status: 'idle', time: '00 h: 00 m: 00 s' }, action) => state,
       },
     });
 

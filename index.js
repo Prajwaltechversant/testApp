@@ -11,18 +11,18 @@ if (__DEV__) {
 }
 
 
-async function enableMocking() {
-    // if (!__DEV__) {
-    //   return
-    // }
+// async function enableMocking() {
+//     // if (!__DEV__) {
+//     //   return
+//     // }
    
-    await import('./msw.polyfills')
-    const { server } = await import('./src/testing-components/mock/server')
-    server.listen()
-  }
+//     await import('./msw.polyfills')
+//     const { server } = await import('./src/testing-components/mock/server')
+//     server.listen()
+//   }
    
-  enableMocking().then(() => {
-    console.log("mocking")
-  })
+//   enableMocking().then(() => {
+//     console.log("mocking")
+//   })
 
   AppRegistry.registerComponent(appName, () => App)
